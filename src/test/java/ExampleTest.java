@@ -5,6 +5,6 @@ import org.junit.jupiter.api.Test;
 public class ExampleTest {
     @Test
     void shouldShowSimpleAssertion() {
-        Assertions.assertEquals(2,2);
+        Assertions.assertEquals(2,new Return2().Test());
     }
 }

@@ -1,6 +1,6 @@
 public class Return2 {
 
     public int Test() {
-        return 2; 
+        return 2;
     }
-}
+} 

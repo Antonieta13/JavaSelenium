@@ -1,5 +1,4 @@
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -10,20 +9,17 @@ import static java.lang.Thread.sleep;
 
 public class GoogleSearch {
 
-    public static FirefoxDriver Driver;
+    private FirefoxDriver Driver;
 
-    @BeforeAll
-    public static void before() {
-        System.out.println("before()");
+    @BeforeEach
+    public void before() {
         System.setProperty("webdriver.gecko.driver", "C:/geckoDriver/geckodriver.exe");
-        GoogleSearch.Driver = new FirefoxDriver();
-        System.out.println(Driver.hashCode());
+        Driver = new FirefoxDriver();
     }
 
     @Test
     public void webdriverFirefox() throws InterruptedException {
 
-        System.out.println(Driver);
 
         Driver.get("https://google.com");
 

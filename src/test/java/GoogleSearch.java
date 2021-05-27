@@ -9,28 +9,28 @@ import static java.lang.Thread.sleep;
 
 public class GoogleSearch {
 
-    private FirefoxDriver Driver;
+    private FirefoxDriver driver;
 
     @BeforeEach
     public void before() {
         System.setProperty("webdriver.gecko.driver", "C:/geckoDriver/geckodriver.exe");
-        Driver = new FirefoxDriver();
+        driver = new FirefoxDriver();
     }
 
     @Test
     public void webdriverFirefox() throws InterruptedException {
 
 
-        Driver.get("https://google.com");
+        driver.get("https://google.com");
 
-        Driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
         sleep(2000);
 
-        Driver.findElement(By.name("q")).sendKeys("Testing");
+        driver.findElement(By.name("q")).sendKeys("Testing");
 
         sleep(1000);
-        Driver.quit();
+        driver.quit();
 
     }
     

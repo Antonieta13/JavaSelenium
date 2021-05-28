@@ -1,19 +1,22 @@
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 import static java.lang.Thread.sleep;
+
 
 public class GoogleSearch {
 
-    private FirefoxDriver driver;
+    private WebDriver driver;
 
     @BeforeEach
     public void before() {
-        System.setProperty("webdriver.gecko.driver", "C:/geckoDriver/geckodriver.exe");
+        WebDriverManager.firefoxdriver().setup();
+
         driver = new FirefoxDriver();
     }
 
@@ -33,5 +36,5 @@ public class GoogleSearch {
         driver.quit();
 
     }
-    
+
 }

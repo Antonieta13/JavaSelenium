@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import static java.lang.Thread.sleep;
 
 
-public class GoogleSearch {
+public class prueba {
 
     private WebDriver driver;
 

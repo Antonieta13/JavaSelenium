@@ -11,7 +11,7 @@ import static java.lang.Thread.sleep;
 
 public class GoogleSearch {
 
-    private WebDriver driver;
+    private WebDriver driver; 
 
     @BeforeEach
     public void before() {

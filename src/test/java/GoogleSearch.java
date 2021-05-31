@@ -3,8 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import static java.lang.Thread.sleep;
 
@@ -15,9 +14,9 @@ public class GoogleSearch {
 
     @BeforeEach
     public void before() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.phantomjs ().setup();
 
-        driver = new FirefoxDriver();
+        driver = new PhantomJSDriver();
     }
 
     @Test

@@ -25,8 +25,6 @@ public class GoogleSearch {
         options.setBinary(firefoxBinary);
         options.setHeadless(true);
         driver = new FirefoxDriver(options);
-
-
     }
 
     @Test

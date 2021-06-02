@@ -63,7 +63,7 @@ public class BuyShirt {
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
         driver.quit();
-
+        
     }
 
 }

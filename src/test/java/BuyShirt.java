@@ -28,7 +28,7 @@ public class BuyShirt {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        
+
     }
 
     @Test

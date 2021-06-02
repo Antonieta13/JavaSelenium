@@ -1,5 +1,4 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.hc.core5.util.Asserts;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -62,7 +61,7 @@ public class BuyShirt {
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
-       
+
 
 
         assertEquals("Your order on My Store is complete." , driver.findElement(By.cssSelector("#center_column > div > p > strong")).getText());

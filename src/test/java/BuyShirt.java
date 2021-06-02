@@ -7,14 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static java.lang.Thread.sleep;
 
 public class BuyShirt {
 
@@ -45,30 +40,29 @@ public class BuyShirt {
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
 
-            WebElement emailUser = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
-            emailUser.click();
+        WebElement emailUser = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
+        emailUser.click();
 
-            WebElement password = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#passwd")));
-            password.click();
+        WebElement password = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#passwd")));
+        password.click();
 
-            emailUser.sendKeys("aperdomobo@gmail.com");
-            password.sendKeys("WorkshopProtractor");
+        emailUser.sendKeys("aperdomobo@gmail.com");
+        password.sendKeys("WorkshopProtractor");
 
-            WebElement signIn = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#SubmitLogin")));
-            signIn.click();
+        WebElement signIn = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#SubmitLogin")));
+        signIn.click();
 
-            new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
-            new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checker"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checker"))).click();
 
-            new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
-            new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.bankwire"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.bankwire"))).click();
 
-            new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
-
-          // driver.quit();
+        driver.quit();
 
     }
 

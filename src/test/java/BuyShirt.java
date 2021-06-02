@@ -1,11 +1,11 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.apache.hc.core5.util.Asserts;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -62,9 +62,21 @@ public class BuyShirt {
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
 
-        driver.quit();
-        
+       
+
+
+        assertEquals("Your order on My Store is complete." , driver.findElement(By.cssSelector("#center_column > div > p > strong")).getText());
+
     }
+
+
+    @AfterEach
+    public void after() {
+
+        driver.quit();
+
+    }
+
 
 }
 

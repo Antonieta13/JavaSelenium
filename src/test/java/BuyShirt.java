@@ -4,10 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import page.*;
+
+import javax.swing.*;
 
 
 public class BuyShirt {
@@ -28,44 +33,47 @@ public class BuyShirt {
     @Test
     public void webdriverChrome() throws InterruptedException {
 
-        driver.get("http://automationpractice.com/");
+        MenuContentPage menuContentPage = new MenuContentPage(driver);
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#center_column a.button.ajax_add_to_cart_button.btn.btn-default"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("[style*=\"display: block;\"] .button-container > a"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        menuContentPage.visitMenuContentPage();
+        menuContentPage.goToTshirtMenu();
 
 
-        WebElement emailUser = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
-        emailUser.click();
+        ProductListPage productListPage = new ProductListPage(driver);
 
-        WebElement password = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#passwd")));
-        password.click();
-
-        emailUser.sendKeys("aperdomobo@gmail.com");
-        password.sendKeys("WorkshopProtractor");
-
-        WebElement signIn = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#SubmitLogin")));
-        signIn.click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checker"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.bankwire"))).click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        productListPage.addToCart();
+        productListPage.proceedToCheckout();
 
 
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+
+        shoppingCartPage.shoppingCart();
 
 
-        assertEquals("Your order on My Store is complete." , driver.findElement(By.cssSelector("#center_column > div > p > strong")).getText());
+        Login login = new Login(driver);
 
+        login.emailInput("aperdomobo@gmail.com");
+        String password = "WorkshopProtractor";
+        login.passInput(password);
+        login.clickLogin();
+
+
+        ShippingStepPage shippingStepPage = new ShippingStepPage(driver);
+
+        shippingStepPage.goCartNavigation();
+
+
+        AddressStepPage addressStepPage = new AddressStepPage(driver);
+
+        addressStepPage.address();
+        addressStepPage.confirm();
+
+
+        PaymentStepPage paymentStepPage = new PaymentStepPage(driver);
+
+        paymentStepPage.selectPayment();
+        paymentStepPage.confirmPayment();
+        paymentStepPage.getConfirmationMessage();
     }
 
 
@@ -75,7 +83,6 @@ public class BuyShirt {
         driver.quit();
 
     }
-
-
 }
+
 

@@ -10,6 +10,9 @@ public class AddressStepPage {
 
     private WebDriver driver;
 
+    By Address = By.cssSelector(".checker");
+    By ConfirmAddress = By.cssSelector(".cart_navigation span");
+
     public AddressStepPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -17,11 +20,11 @@ public class AddressStepPage {
 
     public void address() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checker"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(Address)).click();
     }
 
     public void confirm() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ConfirmAddress)).click();
     }
 }

@@ -10,19 +10,22 @@ public class ProductListPage {
 
     private WebDriver driver;
 
+    By AddToCart = By.cssSelector("#center_column a.button.ajax_add_to_cart_button.btn.btn-default");
+    By Checkout = By.cssSelector("[style*=\"display: block;\"] .button-container > a");
+
     public ProductListPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
     public void addToCart() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#center_column a.button.ajax_add_to_cart_button.btn.btn-default"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(AddToCart)).click();
     }
 
 
     public void proceedToCheckout() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("[style*=\"display: block;\"] .button-container > a"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(Checkout)).click();
 
     }
 }

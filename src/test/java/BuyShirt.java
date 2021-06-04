@@ -51,29 +51,20 @@ public class BuyShirt {
 
 
         Login login = new Login(driver);
-
-        login.emailInput("aperdomobo@gmail.com");
-        String password = "WorkshopProtractor";
-        login.passInput(password);
-        login.clickLogin();
+        login.doLogin("aperdomobo@gmail.com", "WorkshopProtractor");
 
 
         ShippingStepPage shippingStepPage = new ShippingStepPage(driver);
-
         shippingStepPage.goCartNavigation();
 
 
         AddressStepPage addressStepPage = new AddressStepPage(driver);
-
         addressStepPage.address();
         addressStepPage.confirm();
 
 
         PaymentStepPage paymentStepPage = new PaymentStepPage(driver);
-
-        paymentStepPage.selectPayment();
-        paymentStepPage.confirmPayment();
-        paymentStepPage.getConfirmationMessage();
+        paymentStepPage.Payment();
     }
 
 

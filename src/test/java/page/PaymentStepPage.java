@@ -12,6 +12,10 @@ public class PaymentStepPage {
 
     private WebDriver driver;
 
+    By PayMethod = By.cssSelector("a.bankwire");
+    By ConfirmOrder = By.cssSelector(".cart_navigation span");
+    By ConfirmMessage = By.cssSelector("#center_column > div > p > strong");
+
     public PaymentStepPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -19,16 +23,24 @@ public class PaymentStepPage {
 
     public void selectPayment() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.bankwire"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(PayMethod)).click();
     }
 
     public void confirmPayment() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ConfirmOrder)).click();
     }
 
     public void getConfirmationMessage() {
 
-        assertEquals("Your order on My Store is complete." , driver.findElement(By.cssSelector("#center_column > div > p > strong")).getText());
+        assertEquals("Your order on My Store is complete." , driver.findElement((ConfirmMessage)).getText());
+    }
+
+    public void Payment() {
+
+        this.selectPayment();
+        this.confirmPayment();
+        this.getConfirmationMessage();
+
     }
 }

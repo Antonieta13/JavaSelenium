@@ -10,6 +10,9 @@ public class MenuContentPage {
 
   private WebDriver driver;
 
+  By TshirtMenu = By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a");
+
+
   public MenuContentPage(WebDriver driver){
     this.driver = driver;
     PageFactory.initElements(driver,this);
@@ -22,7 +25,7 @@ public class MenuContentPage {
 
   public void goToTshirtMenu() {
 
-    new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#block_top_menu > ul > li:nth-child(3) > a"))).click();
+    new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(TshirtMenu)).click();
   }
 }
 

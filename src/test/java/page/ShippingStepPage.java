@@ -10,6 +10,8 @@ public class ShippingStepPage {
 
     private WebDriver driver;
 
+    By AddressShipping = By.cssSelector(".cart_navigation span");
+
     public ShippingStepPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -17,6 +19,6 @@ public class ShippingStepPage {
 
     public void goCartNavigation() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(AddressShipping)).click();
     }
 }

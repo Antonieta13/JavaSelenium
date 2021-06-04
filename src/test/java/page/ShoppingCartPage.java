@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ShoppingCartPage {
 
     private WebDriver driver;
+
+    By CartCheckout = By.cssSelector(".cart_navigation span");
+
     public ShoppingCartPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -16,7 +19,7 @@ public class ShoppingCartPage {
 
     public void shoppingCart() {
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".cart_navigation span"))).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(CartCheckout)).click();
     }
 }
 

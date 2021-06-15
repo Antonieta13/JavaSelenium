@@ -21,20 +21,22 @@ public class PaymentStepPage {
         PageFactory.initElements(driver,this);
     }
 
-    public void selectPayment() {
+    private void selectPayment() {
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(PayMethod)).click();
     }
 
-    public void confirmPayment() {
+    private void confirmPayment() {
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ConfirmOrder)).click();
     }
 
-    public void getConfirmationMessage() {
+    private void getConfirmationMessage() {
 
         assertEquals("Your order on My Store is complete." , driver.findElement((ConfirmMessage)).getText());
     }
+
+    //get message o get payment message
 
     public void Payment() {
 
@@ -44,3 +46,6 @@ public class PaymentStepPage {
 
     }
 }
+//dos wait
+
+//el assert va dentro de la prueba

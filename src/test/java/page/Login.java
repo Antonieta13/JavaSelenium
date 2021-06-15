@@ -21,7 +21,7 @@ public class Login {
     }
 
 
-    public void emailInput(String userName) {
+    private void emailInput(String userName) { //no es funcional, no es rentable a largo plazo
 
         WebElement emailUser = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(Email));
         emailUser.click();
@@ -30,24 +30,25 @@ public class Login {
     }
 
     
-    public void passInput(String password) {
+    private void passInput(String password) {
         
         WebElement passwd = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(Password));
-        passwd.click();
+        passwd.click(); //wait until
 
         passwd.sendKeys(password);
     }
 
-    public void clickLogin() {
+    private void clickLogin() {
 
         WebElement signIn = (WebElement) new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(Login));
         signIn.click();
     }
 
-    public void doLogin(String email, String password) {
+    public void doLogin(String email, String password) { //publico
 
         this.emailInput(email);
         this.passInput(password);
         this.clickLogin();
+        //email passwd, click y los demas metodos no a menos que sean privados, no los necesito
     }
 }
